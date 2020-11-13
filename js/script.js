@@ -9,32 +9,41 @@ var buttonSend = document.getElementById('btn_enter');
 
 var train;
 var carriage;
+var ticketPrice;
 // PULSANTE INVIO SPAN ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
 buttonSend.addEventListener ('click',
   function (){
     var nome= document.getElementById("f_name").value;
     var km = document.getElementById("f_range").value;
+    var age= document.getElementById("f_age_range").value;
     console.log (km);
+    var ticketPrice= fx_price(age, km);
   }
+
 );
 // / PULSANTE INVIO SPAN-CLOSE
-var ticketPrice= function () {
-var rate= 0.21;
-if (age < 18 ) {
-  var discount = ((km * rate)* 20 /100) ;
-  ticketPrice = (km * rate) - discount;
+function fx_price(a, b) {
 
-} else if (age > 65) {
-  //va applicato uno sconto del 40% per gli over 65.*/
-    var discount = ((km * rate) * 40 / 100);
-    ticketPrice = (km * rate) - discount;
+  var rate= 0.21;
+  if (a == "minor" ) {
+    var discount = ((b * rate)* 20 /100) ;
+    ticketPrice = (b * rate) - discount;
+
+  } else if (a == "senior") {
+    //va applicato uno sconto del 40% per gli over 65.*/
+      var discount = ((b * rate) * 40 / 100);
+      ticketPrice = (b * rate) - discount;
 
 
-} else {
-    ticketPrice = (km * rate);
+  } else {
+      ticketPrice = (b * rate);
 
+  }
+  console.log(ticketPrice)
 }
-};
+
+
+
 
 // Categoria selezionata dall'utente (offerta)
 // Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
