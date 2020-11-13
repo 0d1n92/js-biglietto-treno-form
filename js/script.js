@@ -7,8 +7,8 @@ var ticket= [""];
 // ASSEGNO VAR buttonSend ID DEL'ELEMENTO HTML
 var buttonSend = document.getElementById('btn_enter');
 
-var train;
-var carriage;
+var train= Math.floor(Math.random()*100000) + 900000);
+var carriage= Math.floor(Math.random()*9 ) + 1);
 var ticketPrice;
 // PULSANTE INVIO SPAN ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
 buttonSend.addEventListener ('click',
@@ -18,10 +18,17 @@ buttonSend.addEventListener ('click',
     var age= document.getElementById("f_age_range").value;
     console.log (km);
     var ticketPrice= fx_price(age, km);
+
   }
 
 );
 // / PULSANTE INVIO SPAN-CLOSE
+
+function fx_numberTrain () {
+  mat
+}
+
+//funzione calcolo prezzo
 function fx_price(a, b) {
 
   var rate= 0.21;
@@ -39,7 +46,6 @@ function fx_price(a, b) {
       ticketPrice = (b * rate);
 
   }
-  console.log(ticketPrice)
 }
 
 
