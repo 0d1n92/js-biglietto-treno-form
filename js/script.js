@@ -4,9 +4,20 @@
 // Numero carrozza (numero casuale tra 1 e 9)
 // Prezzo calcolato
 var ticket= [""];
-var nome= getElementById('id');
+// ASSEGNO VAR buttonSend ID DEL'ELEMENTO HTML
+var buttonSend = document.getElementById('btn_enter');
+
 var train;
 var carriage;
+// PULSANTE INVIO SPAN ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
+buttonSend.addEventListener ('click',
+  function (){
+    var nome= document.getElementById("f_name").value;
+    var km = document.getElementById("f_range").value;
+    console.log (km);
+  }
+);
+// / PULSANTE INVIO SPAN-CLOSE
 var ticketPrice= function () {
 var rate= 0.21;
 if (age < 18 ) {

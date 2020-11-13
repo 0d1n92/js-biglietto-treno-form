@@ -9,16 +9,16 @@
      <h1>CALCOLA IL PREZZO DEL BIGLIETTO</h1>
      <div id="box_form" class="">
        <form id="ticket_generator" action="index.html" method="post">
-         <input type="text" name="name" value="">
-         <input type="number" name="km" value="">
-         <select class="" name="age_range">
-            <option value="standard">Maggiorenne</option>
-            <option value="65">Over 65</option>
-            <option value="17">Minorenni</option>
+         <input id="f_name" type="text" name="fname" value="">
+         <input id="f_range" type="number" name="frage" value="">
+         <select class="" name="f_age_range">
+            <option  value="Major">Maggiorenne</option>
+            <option value="Senior">Over 65</option>
+            <option value="Minor">Minorenni</option>
          </select>
        </form>
-       <span id="btn_start" class="btn"></span>
-       <span id="btn_delete" class="btn"></span>
+       <span id="btn_enter" class="btn">Invio</span>
+       <span id="btn_delete" class="btn">Cancella</span>
      </div>
      <h1>IL TUO BIGLIETTO</h1>
      <div id="print_ticket" class="hiden">
