@@ -3,47 +3,66 @@
 // Codice treno (numero casuale tra 90000 e 100000 escluso)
 // Numero carrozza (numero casuale tra 1 e 9)
 // Prezzo calcolato
-var ticket= [""];
 // ASSEGNO VAR buttonSend ID DEL'ELEMENTO HTML
 var buttonSend = document.getElementById('btn_enter');
-
-var train= Math.floor(Math.random()*100000) + 900000);
-var carriage= Math.floor(Math.random()*9 ) + 1);
+var train;
 var ticketPrice;
 // PULSANTE INVIO SPAN ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
 buttonSend.addEventListener ('click',
   function (){
-    var nome= document.getElementById("f_name").value;
+    var name= document.getElementById("f_name").value;
+    console.log(name);
     var km = document.getElementById("f_range").value;
     var age= document.getElementById("f_age_range").value;
-    console.log (km);
     var ticketPrice= fx_price(age, km);
+    var train= Math.floor(Math.random()*100000) + 900000;
+    var carrige= Math.floor(Math.random()*9 ) + 1;
+    document.getElementById('passeger').innerHTML= name;
+    document.getElementById('carrozza').innerHTML= carrige;
+    document.getElementById('train_code').innerHTML= train;
+  }
+
+);
+// BUTTONSEND delete
+buttonSend.addEventListener ('click',
+  function (){
+    var name= document.getElementById("f_name").value;
+    console.log(name);
+    var km = "";
+    var age= "";
+    var ticketPrice= "";
+    var train= "";
+    var carriage= "";
+    document.getElementById('passeger').innerHTML= name;
+    document.getElementById('carrige').innerHTML= carrige;
+    document.getElementById('train_code').innerHTML= train;
 
   }
 
 );
-// / PULSANTE INVIO SPAN-CLOSE
-
-function fx_numberTrain () {
-  mat
-}
 
 //funzione calcolo prezzo
 function fx_price(a, b) {
-
+  var price = document.getElementById('ticket_price');
+  var typeTicket= document.getElementById("discount").innerHTML= "Standard";
   var rate= 0.21;
   if (a == "minor" ) {
     var discount = ((b * rate)* 20 /100) ;
-    ticketPrice = (b * rate) - discount;
+    priceTot = (b * rate) - discount;
+    typeTicket.innerHTML= "Sconto Minorenni";
+    console.log(priceTot);
+    price.innerHTML= priceTot.toFixed(2);
 
   } else if (a == "senior") {
     //va applicato uno sconto del 40% per gli over 65.*/
       var discount = ((b * rate) * 40 / 100);
-      ticketPrice = (b * rate) - discount;
-
+      priceTot = (b * rate) - discount;
+        typeTicket.innerHTML= "Sconto Silver";
+        price.innerHTML= priceTot.toFixed(2);
 
   } else {
-      ticketPrice = (b * rate);
+    priceTot = 3.4;
+    price.innerHTML= priceTot.toFixed(2);
 
   }
 }
