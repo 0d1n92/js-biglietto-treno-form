@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Biglietto</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+     <h1>CALCOLA IL PREZZO DEL BIGLIETTO</h1>
+     <div id="box_form" class="">
+       <form id="ticket_generator" action="index.html" method="post">
+         <input type="text" name="name" value="">
+         <input type="number" name="km" value="">
+         <select class="" name="age_range">
+            <option value="standard">Maggiorenne</option>
+            <option value="65">Over 65</option>
+            <option value="17">Minorenni</option>
+         </select>
+       </form>
+       <span id="btn_start" class="btn"></span>
+       <span id="btn_delete" class="btn"></span>
+     </div>
+     <h1>IL TUO BIGLIETTO</h1>
+     <div id="print_ticket" class="hiden">
+       <h2>DETTAGLI PASSEGERO</h2>
+       <table>
+         <thead>
+           <tr>
+             <th scope="col">PASSEGERO</th>
+             <th scope="col">Offerta</th>
+             <th scope="col">Carrozza</th>
+             <th scope="col">Codice CP</th>
+             <th scope="col">Costo</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td id="passeger"></td>
+             <td id="discount"></td>
+             <td id="carrige"></td>
+             <td id="train_code"></td>
+             <td id="ticket_price"></td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+  </body>
+  <script src="js/script.js" charset="utf-8"></script>
+</html>
