@@ -1,38 +1,53 @@
 
-// ASSEGNO VAR buttonSend ID DEL'ELEMENTO HTML
+// button send and del at css ID
 var buttonSend = document.getElementById('btn_enter');
 var buttonDel = document.getElementById('btn_delete');
+
+//var form assegned element html id
 var fName=document.getElementById("f_name");
 var fRange=document.getElementById("f_range");
 var fAge= document.getElementById("f_age_range");
+
+//id train code
 var trainCodeId=document.getElementById('train_code');
+
+//table ticket
 var printTicket=  document.getElementById('print_ticket');
-var ticketPrice;
+
+
+
 // PULSANTE INVIO SPAN ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
 buttonSend.addEventListener ('click',
   function (){
+
     var name= fName.value;
     var km = fRange.value;
     var age= fAge.value;
     if (name!="" && km!="" && km !=0 && age!="") {
-    var ticketPrice= fx_price(age, km);
-    var train= Math.floor(Math.random()*100000) + 900000;
-    var carriage= Math.floor(Math.random()*9 ) + 1;
+    var ticketPrice= fx_price(age, km); //funtction price calc
+    var train= Math.floor(Math.random()*100000) + 900000; //numero treno
+    var carriage= Math.floor(Math.random()*9 ) + 1; //carrozza
     fx_typeTrain (trainCodeId);
     trainCodeId.innerHTML+= train;
     document.getElementById('passeger').innerHTML= name;
     document.getElementById('carriage').innerHTML= carriage;
-
     printTicket.className="show";
+
   } else {
+
     alert("i campi non risultano corretamente compilati")
+
   }
+
   }
 
 );
+
+
 // BUTTONSEND delete
 buttonDel.addEventListener ('click',
   function (){
+    //delete all value
     printTicket.className="hidden";
     var ticketPrice= "";
     var name= fName.value="";
@@ -47,45 +62,38 @@ buttonDel.addEventListener ('click',
 
 );
 
-//funzione calcolo prezzo
+
+//function  prace calc a=km b=age
 function fx_price(a, b) {
-  var price = document.getElementById('ticket_price');
-  var typeTicket= document.getElementById("discount").innerHTML= "Standard";
-  var rate= 0.21;
-  // Categoria selezionata dall'utente (offerta)
-  if (a == "minor" ) {
-    var discount = ((b * rate)* 20 /100) ;
-    priceTot = (b * rate) - discount;
-    typeTicket.innerHTML= "Sconto Minorenni";
-    price.innerHTML= priceTot.toFixed(2)+"€";
+  //assegned id tab td element html
+  var tablePrice = document.getElementById('ticket_price');
 
-  } else if (a == "senior") {
-    //va applicato uno sconto del 40% per gli over 65.*/
-      var discount = ((b * rate) * 40 / 100);
-      priceTot = (b * rate) - discount;
-        typeTicket.innerHTML= "Sconto Silver";
-        price.innerHTML= priceTot.toFixed(2)+"€";
+  var rate= 0.21; //costo km
+  //prezzo
+  var price= b * rate;
 
-  } else {
-    priceTot = (b * rate)
-    price.innerHTML= priceTot.toFixed(2)+"€";
-
+  var stringPrice="Standard"
+  //age > 65
+  if (a=="senior") {
+    price*= 1 - 40/100;
+    stringPrice="Sconto Silver"
+  } else if (a=="minor") {
+      // prezzo*1-percentuale di sconto
+      price*= 1 - 20/100;
+      stringPrice="Minorenne"
   }
+  document.getElementById("discount").innerHTML= stringPrice;
+  tablePrice.innerHTML= price.toFixed(2)+"€";
 }
 
 function fx_typeTrain(position) {
   var random= Math.floor(Math.random()*3) + 1;
-
+  var typeTrain= "<strong>Regionale</strong>\t"
   if (random==1){
-    position.innerHTML="<strong>Regionale</strong>\t";
-
+     typeTrain="<strong>Intercity</strong>\t";
   } else if (random==2) {
-      position.innerHTML="<strong>Intercity</strong>\t";
-
-  } else {
-    position.innerHTML="<strong>Freccia</strong>\t"
+    typeTrain="<strong>Freccia</strong>\t"
   }
+  trainCodeId.innerHTML= typeTrain;
+
 }
-
-
-// Aggiungiamo una piccola animazione al click su "Crea" e "Annulla", se clicchiamo su annulla dobbiamo ripulire il form.
