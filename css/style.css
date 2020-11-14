@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: darkred;
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+.wrapper {
+  width: 70%;
+  margin: 30px auto;
+  color: black;
+}
+h1 {
+  margin-top: 30px;
+}
+
+#print_ticket, #box_form {
+  width: 100%;
+  padding: 50px;
+  background-color: white;
+  border-radius: 5px;
+}
+#box_form {
+  background-color: #F8F8F8;
+}
+ form#ticket_generator {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   flex-wrap: wrap;
+ }
+ .col {
+   display: flex;
+   flex-direction: column;
+ }
+form#ticket_generator input {
+
+  border: 1px solid lightgray;
+  height: 35px;
+  width: 20%;
+  min-width: 200px;
+  border-radius: 0px;
+  box-shadow: 0px 1px 15px 0px rgba(50, 50, 50, 0.31);
+}
+form#ticket_generator label {
+  margin:10px 0;
+}
+ button {
+   margin:10px 20px 0px 20px;
+   height: 30px;
+   padding: 5px;
+ }
+#print_ticket {
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+td#passeger {
+  background-color: #E3E3E3;
+  font-weight: bold;
+}
+#print_ticket table {
+  margin-top: 50px;
+  min-height: 100px;
+  width: 100%;
+  background-color: #F8F8F8;
+}
+th:first-child {
+  background-color: #E3E3E3;
+}
+ .hidden {
+   opacity: 0;
+   transition: 1s;
+ }
+ .show {
+    opacity: 1;
+    transition: 1s;
+ }
