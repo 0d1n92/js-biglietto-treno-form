@@ -1,5 +1,5 @@
 
-// button send and del at css ID
+// button id element
 var buttonSend = document.getElementById('btn_enter');
 var buttonDel = document.getElementById('btn_delete');
 
@@ -14,17 +14,16 @@ var trainCodeId=document.getElementById('train_code');
 //table ticket
 var printTicket=  document.getElementById('print_ticket');
 
-
-
-// PULSANTE INVIO SPAN ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
+// PULSANTE INVIO ASSEGNO UN'EVENTO ALLA VARIABILE BUTTONSEND
 buttonSend.addEventListener ('click',
   function (){
 
     var name= fName.value;
     var km = fRange.value;
     var age= fAge.value;
+
     if (name!="" && km!="" && km !=0 && age!="") {
-    var ticketPrice= fx_price(age, km); //funtction price calc
+    var ticketPrice= fx_price(age, km); //function price calc
     var train= Math.floor(Math.random()*100000) + 900000; //numero treno
     var carriage= Math.floor(Math.random()*9 ) + 1; //carrozza
     fx_typeTrain (trainCodeId);
@@ -32,10 +31,10 @@ buttonSend.addEventListener ('click',
     document.getElementById('passeger').innerHTML= name;
     document.getElementById('carriage').innerHTML= carriage;
     printTicket.className="show";
-
+    var c= 1;
   } else {
 
-    alert("i campi non risultano corretamente compilati")
+    alert("i campi non risultano correttamente compilati")
 
   }
 
@@ -44,7 +43,7 @@ buttonSend.addEventListener ('click',
 );
 
 
-// BUTTONSEND delete
+// BUTTON delete
 buttonDel.addEventListener ('click',
   function (){
     //delete all value
@@ -63,7 +62,7 @@ buttonDel.addEventListener ('click',
 );
 
 
-//function  prace calc a=km b=age
+//function  price calc a=age b=km
 function fx_price(a, b) {
   //assegned id tab td element html
   var tablePrice = document.getElementById('ticket_price');
@@ -79,6 +78,7 @@ function fx_price(a, b) {
     stringPrice="Sconto Silver"
   } else if (a=="minor") {
       // prezzo*1-percentuale di sconto
+      //price=km*prezzoalkm-20%
       price*= 1 - 20/100;
       stringPrice="Minorenne"
   }
